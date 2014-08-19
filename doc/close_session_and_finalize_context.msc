@@ -1,0 +1,18 @@
+msc {
+	hscale = "0.9", wordwraparcs = on;
+
+	a [label="hello_world\nuser space"],
+	b [label="hello world\nTEE Driver"],
+	f [label="TEE Core"],
+	g [label="TA"];
+
+	||| ;
+	a=>b [ label = "Close\nSession" ];
+	b=>f [ label = "Close\nSession" ];
+	f=>g [ label = "TA_CloseSessionEntryPoint" ];
+	g>>f ;
+	f>>b ;
+	b>>a ;
+	a=>b [ label = "Finalize\nContext" ];
+	b>>a ;
+}

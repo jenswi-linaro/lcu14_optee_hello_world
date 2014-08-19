@@ -1,0 +1,16 @@
+msc {
+	hscale = "0.9", wordwraparcs = on;
+
+	a [label="hello_world\nuser space"],
+	b [label="hello world\nTEE Driver"],
+	f [label="TEE Core"],
+	g [label="TA"];
+
+	||| ;
+	a=>b [ label = "Invoke\nCommand" ];
+	b=>f [ label = "Invoke\nCommand" ];
+	f=>g [ label = "TA_InvokeCommandEntryPoint" ];
+	g>>f [ label = "ret: result" ];
+	f>>b [ label = "ret: result" ];
+	b>>a [ label = "ret: result" ];
+}

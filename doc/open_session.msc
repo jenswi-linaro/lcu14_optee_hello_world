@@ -1,0 +1,22 @@
+msc {
+	hscale = "0.9", wordwraparcs = on;
+
+	a [label="hello_world\nuser space"],
+	b [label="hello world\nTEE Driver"],
+	c [label="tee-supplicant"],
+	f [label="TEE Core"],
+	g [label="TA"];
+
+	||| ;
+	a=>b [ label = "Open\nSession" ];
+	b=>f [ label = "Open\nSession" ];
+	f=>f [ label = "Looking for TA" ];
+	f=>c [ label = "Load TA" ];
+	c=>c [ label = "Loading TA" ];
+	c>>f [ label = "Load TA" ];
+	f=>f [ label = "Load TA" ];
+	f=>g [ label = "TA_OpenSessionEntryPoint" ];
+	g>>f ;
+	f>>b [ label = "ret: session" ];
+	b>>a [ label = "ret: session" ];
+}
