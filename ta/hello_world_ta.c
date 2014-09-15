@@ -50,10 +50,10 @@ TEE_Result TA_OpenSessionEntryPoint(uint32_t param_types,
 	(void)&sess_ctx;
 
 	/*
-	 * The DMSG() macro is non-standard, TEE Internal API doesn't
+	 * The AMSG() macro is non-standard, TEE Internal API doesn't
 	 * specify any means to logging from a TA.
 	 */
-	DMSG("Hello World!\n");
+	AMSG("Hello World!\n");
 	/* If return value != TEE_SUCCESS the session will not be created. */
 	return TEE_SUCCESS;
 }
@@ -65,7 +65,7 @@ TEE_Result TA_OpenSessionEntryPoint(uint32_t param_types,
 void TA_CloseSessionEntryPoint(void *sess_ctx)
 {
 	(void)&sess_ctx; /* Unused parameter */
-	DMSG("Goodbye!\n");
+	AMSG("Goodbye!\n");
 }
 
 static TEE_Result inc_value(uint32_t param_types, TEE_Param params[4])
