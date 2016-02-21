@@ -55,12 +55,12 @@ void TA_DestroyEntryPoint(void)
  * TA.
  */
 TEE_Result TA_OpenSessionEntryPoint(uint32_t param_types,
-		TEE_Param  params[4], void **sess_ctx)
+		TEE_Param  params[TEE_NUM_PARAMS], void **sess_ctx)
 {
-	uint32_t exp_param_types = TEE_PARAM_TYPES(TEE_PARAM_TYPE_NONE,
-						   TEE_PARAM_TYPE_NONE,
-						   TEE_PARAM_TYPE_NONE,
-						   TEE_PARAM_TYPE_NONE);
+	const uint32_t exp_param_types = TEE_PARAM_TYPES(TEE_PARAM_TYPE_NONE,
+							 TEE_PARAM_TYPE_NONE,
+							 TEE_PARAM_TYPE_NONE,
+							 TEE_PARAM_TYPE_NONE);
 	if (param_types != exp_param_types)
 		return TEE_ERROR_BAD_PARAMETERS;
 
@@ -87,12 +87,12 @@ void TA_CloseSessionEntryPoint(void *sess_ctx)
 	IMSG("Goodbye!\n");
 }
 
-static TEE_Result inc_value(uint32_t param_types, TEE_Param params[4])
+static TEE_Result inc_value(uint32_t param_types, TEE_Param params[TEE_NUM_PARAMS])
 {
-	uint32_t exp_param_types = TEE_PARAM_TYPES(TEE_PARAM_TYPE_VALUE_INOUT,
-						   TEE_PARAM_TYPE_NONE,
-						   TEE_PARAM_TYPE_NONE,
-						   TEE_PARAM_TYPE_NONE);
+	const uint32_t exp_param_types = TEE_PARAM_TYPES(TEE_PARAM_TYPE_VALUE_INOUT,
+							 TEE_PARAM_TYPE_NONE,
+							 TEE_PARAM_TYPE_NONE,
+							 TEE_PARAM_TYPE_NONE);
 
 	if (param_types != exp_param_types)
 		return TEE_ERROR_BAD_PARAMETERS;
@@ -107,7 +107,7 @@ static TEE_Result inc_value(uint32_t param_types, TEE_Param params[4])
  * comes from normal world.
  */
 TEE_Result TA_InvokeCommandEntryPoint(void *sess_ctx, uint32_t cmd_id,
-			uint32_t param_types, TEE_Param params[4])
+			uint32_t param_types, TEE_Param params[TEE_NUM_PARAMS])
 {
 	(void)&sess_ctx; /* Unused parameter */
 
