@@ -24,7 +24,7 @@ Build Instructions
         export HOST_CROSS_COMPILE=$PWD/../toolchains/aarch64/bin/aarch64-linux-gnu-
         export TA_CROSS_COMPILE=$PWD/../toolchains/aarch32/bin/arm-linux-gnueabihf-
         export TEEC_EXPORT=$PWD/../optee_client/out/export
-        export TA_DEV_KIT_DIR=$PWD/../optee_os/out/arm-plat-vexpress/export-user_ta
+        export TA_DEV_KIT_DIR=$PWD/../optee_os/out/arm/export-ta_arm32
 
 5. Build it!
 
