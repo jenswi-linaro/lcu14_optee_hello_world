@@ -1,3 +1,8 @@
+Superseded
+----------
+
+This project has been superseded by https://github.com/linaro-swg/hello_world
+
 Presentation
 ------------
 
